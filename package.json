@@ -13,7 +13,9 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "gatsby": "^4.9.0",
@@ -41,6 +43,16 @@
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-interactions": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/builder-webpack5": "^6.4.19",
+    "@storybook/manager-webpack5": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "@storybook/testing-library": "^0.0.9",
+    "babel-loader": "^8.2.3",
     "prettier": "^2.5.1"
   },
   "homepage": "https://github.com/okesseko/personal-website-dcard",
@@ -51,6 +63,9 @@
     "website",
     "react"
   ],
+  "resolutions": {
+  "@storybook/{app}/webpack": "^5"
+},
   "license": "MIT",
   "repository": {
     "type": "git",
