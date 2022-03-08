@@ -39,6 +39,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-icons": "^4.3.1",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75"
   },
@@ -53,7 +54,10 @@
     "@storybook/react": "^6.4.19",
     "@storybook/testing-library": "^0.0.9",
     "babel-loader": "^8.2.3",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "stylelint": "^14.5.3",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^25.0.0"
   },
   "homepage": "https://github.com/okesseko/personal-website-dcard",
   "keywords": [
@@ -64,8 +68,8 @@
     "react"
   ],
   "resolutions": {
-  "@storybook/{app}/webpack": "^5"
-},
+    "@storybook/{app}/webpack": "^5"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
