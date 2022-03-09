@@ -10,6 +10,8 @@ const Template = args => <Header {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  primary: true,
-  label: "Button",
+  placeholder: "search me",
+  onSearch: val => {
+    console.log(`search val: ${val}`)
+  },
 }
