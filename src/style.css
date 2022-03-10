@@ -7,10 +7,10 @@
   --color-secondary: #00324e;
   --color-tertiary: #00588a;
   --color-sidebar-white: rgb(255 255 255 / 75%);
-  --color-grey-1: rgb(black 0.75);
-  --color-grey-2: rgb(black 0.5);
-  --color-grey-3: rgb(black 0.35);
-  --color-grey-4: rgb(black 0.25);
+  --color-grey-1: rgb(255 255 255 / 75%);
+  --color-grey-2: rgb(255 255 255 / 50%);
+  --color-grey-3: rgb(255 255 255 / 35%);
+  --color-grey-4: rgb(255 255 255 / 25%);
 }
 
 /* HTML elements */
