@@ -1,0 +1,61 @@
+.menu {
+  position: fixed;
+  margin-top: 0.5rem;
+  width: 10rem;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: var(--menu-triangle-right);
+    width: 1rem;
+    height: 1rem;
+    background: white;
+    border-radius: 0.25rem;
+    content: "";
+    transform: rotate(45deg);
+  }
+
+  &--close {
+    animation-duration: 0.2s;
+    animation-name: close;
+    animation-fill-mode: forwards;
+
+    @keyframes close {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+  }
+
+  &-list {
+    position: absolute;
+    margin: 0.4rem 0 0;
+    padding: 0.375rem 0;
+    width: 100%;
+    font-size: 0.875rem;
+    color: rgb(0 0 0 / 75%);
+    background-color: white;
+    border-radius: 0.5rem;
+    list-style-type: none;
+
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(242 243 244);
+      }
+
+      &--selected {
+        color: #3397cf;
+      }
+    }
+  }
+}
