@@ -3,7 +3,6 @@ import {
   AiFillCloseCircle,
   AiOutlineSearch,
   AiFillGithub,
-  AiFillMail,
 } from "react-icons/ai"
 import { FaLinkedin } from "react-icons/fa"
 import { IoMdMail } from "react-icons/io"
