@@ -15,16 +15,19 @@ const Template = args => (
 
 export const Primary = Template.bind({})
 Primary.args = {
+  article: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n
+   ![image1](https://tplighting.hk/wp-content/uploads/2020/10/test1.jpg) ![image2](https://tplighting.hk/wp-content/uploads/2020/10/test1.jpg)
+  Lorem Ipsum is simply dummy [google link](https://google.com)  Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy
+  `,
   authImg: imgTest,
-  articleImg: imgTest,
-  category: "test",
-  description:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+  category: { text: "category", path: "/category" },
   emotionIcon: "🤣🥰🤩",
   emotionNumber: 1,
   releaseTime: "2020/01/01",
   title: "Title",
-  onClick: () => {
-    console.log("article click")
-  },
+  topic: [
+    { text: "topic1", path: "/topic1" },
+    { text: "topic2", path: "/topic2" },
+  ],
 }
