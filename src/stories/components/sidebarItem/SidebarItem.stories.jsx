@@ -2,7 +2,7 @@ import React from "react"
 import SidebarItem from "./SidebarItem"
 import { CgMenuBoxed } from "react-icons/cg"
 import { FaFire } from "react-icons/fa"
-
+import imgTest from "../../../images/img-test.png"
 
 export default {
   title: "Components/SidebarItem",
@@ -21,4 +21,11 @@ export const Fire = Template.bind({})
 Fire.args = {
   IconComponent: FaFire,
   text: "I am item",
+}
+
+export const Image = Template.bind({})
+Image.args = {
+  imageUrl: imgTest,
+  text: "I am item",
+  type: "image",
 }
