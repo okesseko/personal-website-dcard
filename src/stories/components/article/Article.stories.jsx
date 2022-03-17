@@ -17,7 +17,7 @@ export const Primary = Template.bind({})
 Primary.args = {
   article: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n
-   ![image1](https://tplighting.hk/wp-content/uploads/2020/10/test1.jpg) ![image2](https://tplighting.hk/wp-content/uploads/2020/10/test1.jpg)
+   ![image1](https://pic1.zhimg.com/v2-81a06ae54177e4beccf4fd9c20f267a8_b.jpg) ![image2](https://pic1.zhimg.com/v2-81a06ae54177e4beccf4fd9c20f267a8_b.jpg)
   Lorem Ipsum is simply dummy [google link](https://google.com)  Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy
   `,
   authImg: imgTest,
