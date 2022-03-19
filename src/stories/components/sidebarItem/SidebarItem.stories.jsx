@@ -15,12 +15,14 @@ export const Menu = Template.bind({})
 Menu.args = {
   IconComponent: CgMenuBoxed,
   text: "I am item",
+  value: "item1",
 }
 
 export const Fire = Template.bind({})
 Fire.args = {
   IconComponent: FaFire,
   text: "I am item",
+  value: "item1",
 }
 
 export const Image = Template.bind({})
@@ -28,4 +30,5 @@ Image.args = {
   imageUrl: imgTest,
   text: "I am item",
   type: "image",
+  value: "item1",
 }
