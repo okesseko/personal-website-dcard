@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import Header from "../stories/components/header/Header"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -19,16 +20,15 @@ const Layout = ({ location, title, children }) => {
       </Link>
     )
   }
-
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
+    <div className="global-wrapper" >
+      <Header
+        placeholder="有甚麼想找的~"
+        onSearch={val => {
+          console.log(`search val: ${val}`)
+        }}
+      />
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
-      </footer>
     </div>
   )
 }
