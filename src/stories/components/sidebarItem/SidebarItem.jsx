@@ -6,9 +6,11 @@ const SidebarItem = ({
   IconComponent,
   iconSize,
   imageUrl,
+  onClick,
   selected,
   text,
   type,
+  value,
 }) => {
   function shouldBeRenderedComponentByType() {
     switch (type) {
@@ -28,7 +30,12 @@ const SidebarItem = ({
   }
 
   return (
-    <div className={`sidebarItem ${selected && "sidebarItem--selected"}`}>
+    <div
+      className={`sidebarItem ${selected && "sidebarItem--selected"}`}
+      onClick={() => {
+        if (type !== "title") onClick(value)
+      }}
+    >
       {shouldBeRenderedComponentByType()}
       <p
         className={`sidebarItem-text ${
@@ -45,17 +52,21 @@ SidebarItem.defaultProps = {
   IconComponent: <></>,
   iconSize: 24,
   imageUrl: "",
+  onClick: () => {},
   text: "",
   type: "icon",
+  value: "",
 }
 
 SidebarItem.propTypes = {
   IconComponent: PropTypes.elementType,
   iconSize: PropTypes.number,
   imageUrl: PropTypes.string,
+  onClick: PropTypes.func,
   selected: PropTypes.bool,
   text: PropTypes.string,
   type: PropTypes.oneOf(["icon", "image", "title"]),
+  value: PropTypes.string,
 }
 
 export default SidebarItem
