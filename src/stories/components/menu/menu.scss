@@ -2,6 +2,8 @@
   position: fixed;
   margin-top: 0.5rem;
   width: 10rem;
+  transform: translate(var(--menu-transition-x), var(--menu-transition-y));
+  filter: drop-shadow(rgb(0 0 0 / 10%) 0 3px 12px);
 
   &::before {
     position: absolute;

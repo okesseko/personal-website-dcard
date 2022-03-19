@@ -3,7 +3,15 @@ import PropTypes from "prop-types"
 import { BsCheck2 } from "react-icons/bs"
 import "./menu.scss"
 
-const Menu = ({ triangleRight, selectedItem, items, onClick, closeMenu }) => {
+const Menu = ({
+  triangleRight,
+  transitionX,
+  transitionY,
+  selectedItem,
+  items,
+  onClick,
+  closeMenu,
+}) => {
   const [closeAnim, setCloseAnim] = useState(false)
 
   useEffect(() => {
@@ -22,7 +30,11 @@ const Menu = ({ triangleRight, selectedItem, items, onClick, closeMenu }) => {
   return (
     <div
       className={`menu ${closeAnim && "menu--close"}`}
-      style={{ "--menu-triangle-right": triangleRight }}
+      style={{
+        "--menu-triangle-right": triangleRight,
+        "--menu-transition-x": transitionX,
+        "--menu-transition-y": transitionY,
+      }}
     >
       <ul className="menu-list">
         {items.map(item => (
@@ -46,6 +58,8 @@ const Menu = ({ triangleRight, selectedItem, items, onClick, closeMenu }) => {
 
 Menu.defaultProps = {
   triangleRight: "0.625rem",
+  transitionX: "",
+  transitionY: "",
   selectedItem: "",
   items: [],
   onClick: () => {},
@@ -54,6 +68,8 @@ Menu.defaultProps = {
 
 Menu.propTypes = {
   triangleRight: PropTypes.string,
+  transitionX: PropTypes.string,
+  transitionY: PropTypes.string,
   selectedItem: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
