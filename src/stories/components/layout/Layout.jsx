@@ -2,60 +2,28 @@ import React from "react"
 import PropTypes from "prop-types"
 import Header from "../header/Header"
 import Sidebar from "../sidebar/Sidebar"
-import { CgMenuBoxed } from "react-icons/cg"
-import imgTest from "../../../images/img-test.png"
 import "./layout.scss"
 
-const Layout = ({ children }) => {
+const Layout = ({ asideContent, children, headerProps, sidebarProps }) => {
   return (
     <div className="layout">
-      <Header
-        placeholder="有甚麼想找的~"
-        onSearch={val => {
-          console.log(`search val: ${val}`)
-        }}
-      />
+      <Header {...headerProps} />
       <div className="layout__main">
-        <Sidebar
-          fixedItems={[
-            { IconComponent: CgMenuBoxed, text: "I am fixed items" },
-            { IconComponent: CgMenuBoxed, text: "I am fixed items" },
-            { IconComponent: CgMenuBoxed, text: "I am fixed items" },
-            { IconComponent: CgMenuBoxed, text: "I am fixed items" },
-          ]}
-          topicItems={[
-            { type: "title", text: "I am title" },
-            { type: "image", imageUrl: imgTest, text: "I am topic item" },
-            { type: "image", imageUrl: imgTest, text: "I am topic item" },
-            { type: "image", imageUrl: imgTest, text: "I am topic item" },
-            { type: "image", imageUrl: imgTest, text: "I am topic item" },
-            { type: "image", imageUrl: imgTest, text: "I am topic item" },
-            { type: "image", imageUrl: imgTest, text: "I am topic item" },
-            { type: "image", imageUrl: imgTest, text: "I am topic item" },
-            { type: "image", imageUrl: imgTest, text: "I am topic item" },
-          ]}
-        />
-        <main>{children}</main>
+        <Sidebar {...sidebarProps} />
+        <main>
+          <div className="layout__main__children">{children}</div>
+        </main>
+        <aside className="layout__main__aside">{asideContent}</aside>
       </div>
     </div>
   )
 }
 
-Layout.defaultProps = {
-  IconComponent: <></>,
-  iconSize: 24,
-  imageUrl: "",
-  text: "",
-  type: "icon",
-}
-
 Layout.propTypes = {
-  IconComponent: PropTypes.elementType,
-  iconSize: PropTypes.number,
-  imageUrl: PropTypes.string,
-  selected: PropTypes.bool,
-  text: PropTypes.string,
-  type: PropTypes.oneOf(["icon", "image", "title"]),
+  asideContent: PropTypes.element,
+  children: PropTypes.element.isRequired,
+  headerProps: Header.propTypes,
+  sidebarProps: Sidebar.propTypes,
 }
 
 export default Layout

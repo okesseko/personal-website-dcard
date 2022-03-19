@@ -1,5 +1,32 @@
 .layout {
+  height: 100%;
+
   &__main {
-    padding-top: 3rem;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1.25rem 0 0;
+    margin: auto;
+
+    main {
+      flex-shrink: 0;
+      min-height: calc(100vh - 5.5rem);
+      padding: 1.25rem 0;
+      .layout__main__children {
+        width: 45.5rem;
+        height: 100%;
+        margin: 0 0.75rem;
+        background-color: white;
+        border-radius: 0.25rem;
+      }
+    }
+
+    &__aside {
+      position: sticky;
+      top: 4.25rem;
+      width: 18.75rem;
+      margin-top: 20px;
+      min-height: calc(100vh - 88px);
+      flex-shrink: 0;
+    }
   }
 }
