@@ -23,13 +23,15 @@ const Header = ({ placeholder, onSearch }) => {
           value={inputValue}
           onChange={e => setInputValue(e.target.value)}
         />
-        <button
-          type="button"
-          className="header-searchbar__clean"
-          onClick={() => setInputValue("")}
-        >
-          <AiFillCloseCircle size={14} />
-        </button>
+        {inputValue && (
+          <button
+            type="button"
+            className="header-searchbar__clean"
+            onClick={() => setInputValue("")}
+          >
+            <AiFillCloseCircle size={14} />
+          </button>
+        )}
         <button
           type="button"
           className="header-searchbar__search"
