@@ -2,57 +2,46 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
-import Layout from "../components/layout"
+import Layout from "../stories/components/layout/Layout"
 import Seo from "../components/seo"
+import { Router } from "@reach/router"
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+import { CgMenuBoxed } from "react-icons/cg"
+import { FaFire } from "react-icons/fa"
+import imgTest from "../images/img-test.png"
+import react from "../images/react-icon.png"
+import reactNative from "../images/react-native-icon.png"
+import nft from "../images/NFT.png"
+import AllPost from "../templates/allPost"
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
-
+const App = ({ data, location }) => {
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
-     
-    
+    <Layout
+      headerProps={{
+        placeholder: "搜尋 你好",
+        onSearch: val => {
+          console.log(`search val: ${val}`)
+        },
+      }}
+      sidebarProps={{
+        fixedItems: [
+          { IconComponent: CgMenuBoxed, text: "所有文章", value: "all" },
+          { IconComponent: FaFire, text: "熱門文章", value: "popular" },
+        ],
+        topicItems: [
+          { type: "title", text: "文章分類" },
+          { type: "image", imageUrl: react, text: "React" },
+          { type: "image", imageUrl: reactNative, text: "React Native" },
+          { type: "image", imageUrl: nft, text: "NFT" },
+          { type: "image", imageUrl: imgTest, text: "個人網站" },
+        ],
+      }}
+    >
+      <Router>
+        <AllPost path="/" />
+      </Router>
     </Layout>
   )
 }
 
-export default BlogIndex
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-        }
-      }
-    }
-  }
-`
+export default App
