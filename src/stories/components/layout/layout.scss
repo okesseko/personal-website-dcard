@@ -2,20 +2,21 @@
   height: 100%;
 
   &__main {
-    width: fit-content;
     display: flex;
     justify-content: center;
-    padding: 3rem 1.25rem 0 0;
     margin: auto;
+    padding: 3rem 1.25rem 0 0;
+    width: fit-content;
 
     main {
-      flex-shrink: 0;
-      min-height: calc(100vh - 5.5rem);
       padding: 1.25rem 0;
+      min-height: calc(100vh - 5.5rem);
+      flex-shrink: 0;
+
       .layout__main__children {
+        margin: 0 0.75rem;
         width: 45.5rem;
         height: 100%;
-        margin: 0 0.75rem;
         background-color: white;
         border-radius: 0.25rem;
       }
@@ -24,8 +25,8 @@
     &__aside {
       position: sticky;
       top: 4.25rem;
-      width: 18.75rem;
       margin-top: 20px;
+      width: 18.75rem;
       min-height: calc(100vh - 88px);
       flex-shrink: 0;
     }
