@@ -49,7 +49,6 @@ const SidebarItem = ({
 }
 
 SidebarItem.defaultProps = {
-  IconComponent: <></>,
   iconSize: 24,
   imageUrl: "",
   onClick: () => {},
