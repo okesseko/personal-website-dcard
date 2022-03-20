@@ -22,8 +22,8 @@ const Layout = ({ asideContent, children, headerProps, sidebarProps }) => {
 Layout.propTypes = {
   asideContent: PropTypes.element,
   children: PropTypes.element.isRequired,
-  headerProps: Header.propTypes,
-  sidebarProps: Sidebar.propTypes,
+  headerProps: PropTypes.shape(Header.propTypes),
+  sidebarProps: PropTypes.shape(Sidebar.propTypes),
 }
 
 export default Layout
