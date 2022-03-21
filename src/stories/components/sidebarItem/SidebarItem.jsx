@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Match, Link } from "@reach/router"
 import "./sidebarItem.scss"
 
 const SidebarItem = ({
@@ -7,7 +8,6 @@ const SidebarItem = ({
   iconSize,
   imageUrl,
   onClick,
-  selected,
   text,
   type,
   value,
@@ -30,21 +30,27 @@ const SidebarItem = ({
   }
 
   return (
-    <div
-      className={`sidebarItem ${selected && "sidebarItem--selected"}`}
-      onClick={() => {
-        if (type !== "title") onClick(value)
-      }}
-    >
-      {shouldBeRenderedComponentByType()}
-      <p
-        className={`sidebarItem-text ${
-          type === "title" && "sidebarItem-text--title"
-        }`}
-      >
-        {text}
-      </p>
-    </div>
+    <Match path={value}>
+      {props =>
+        type === "title" ? (
+          <div className="sidebarItem">
+            <p className="sidebarItem-text sidebarItem-text--title">{text}</p>
+          </div>
+        ) : (
+          <Link to={value}>
+            <div
+              className={`sidebarItem "sidebarItem--link" ${
+                props.match && "sidebarItem--selected"
+              }`}
+              onClick={() => onClick(value)}
+            >
+              {shouldBeRenderedComponentByType()}
+              <p className="sidebarItem-text">{text}</p>
+            </div>
+          </Link>
+        )
+      }
+    </Match>
   )
 }
 
@@ -62,7 +68,6 @@ SidebarItem.propTypes = {
   iconSize: PropTypes.number,
   imageUrl: PropTypes.string,
   onClick: PropTypes.func,
-  selected: PropTypes.bool,
   text: PropTypes.string,
   type: PropTypes.oneOf(["icon", "image", "title"]),
   value: PropTypes.string,

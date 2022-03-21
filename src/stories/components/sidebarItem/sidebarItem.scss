@@ -5,12 +5,16 @@
   height: 2.75rem;
   color: white;
 
-  &:hover {
+  &--link:hover {
     background-color: rgb(0 0 0 / 35%);
   }
 
+  &--title {
+    pointer-events: none;
+  }
+
   &--selected {
-    background-color: rgb(255 255 255 / 30%);
+    background-color: rgb(255 255 255 / 30%) !important;
   }
 
   &-icon {
@@ -31,6 +35,7 @@
     color: var(--color-grey-1);
 
     &--title {
+      margin: 0;
       font-size: 0.875rem;
       color: rgb(255 255 255 / 35%);
     }
