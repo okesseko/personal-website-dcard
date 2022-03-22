@@ -23,7 +23,6 @@ Dialog.defaultProps = {
   children: null,
   dialogStyle: {},
   onClose: () => {},
-  insertDomTree: document.body,
 }
 
 Dialog.propTypes = {

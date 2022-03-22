@@ -36,6 +36,6 @@ const Template = args => {
 
 export const Primary = Template.bind({})
 Primary.args = {
-  dialogStyle: { display: "flex" },
   dialogContentStyle: {},
+  insertDomTree: document.body,
 }
