@@ -6,6 +6,7 @@ import {
 } from "react-icons/ai"
 import { FaLinkedin } from "react-icons/fa"
 import { IoMdMail } from "react-icons/io"
+import { Link } from "gatsby"
 
 import logo from "../../../images/logo.svg"
 import PropTypes from "prop-types"
@@ -16,7 +17,9 @@ const Header = ({ placeholder, onSearch }) => {
 
   return (
     <header className="header">
-      <img height={28} src={logo} />
+      <Link to="/">
+        <img height={28} src={logo} />
+      </Link>
       <form className="header-searchbar">
         <input
           placeholder={placeholder}
