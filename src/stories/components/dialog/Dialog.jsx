@@ -29,7 +29,7 @@ Dialog.propTypes = {
   children: PropTypes.element,
   dialogStyle: PropTypes.object,
   onClose: PropTypes.func,
-  insertDomTree: PropTypes.element,
+  insertDomTree: PropTypes.instanceOf(Element),
 }
 
 export default Dialog
