@@ -1,10 +1,18 @@
-import React from "react"
+import React, { useLayoutEffect } from "react"
+import { navigate } from "gatsby"
+import { useLocation } from "@reach/router"
 import PropTypes from "prop-types"
 import Header from "../header/Header"
 import Sidebar from "../sidebar/Sidebar"
 import "./layout.scss"
 
 const Layout = ({ asideContent, children, headerProps, sidebarProps }) => {
+  const location = useLocation()
+
+  // remove router state when reload page
+  useLayoutEffect(() => {
+    navigate(location.pathname + location.search, { replace: true })
+  }, [])
   return (
     <div className="layout">
       <Header {...headerProps} />
