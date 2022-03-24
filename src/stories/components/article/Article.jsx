@@ -96,12 +96,12 @@ const Article = ({
         </div>
         <div className="article-article">
           <h2 className="article-article__title">{title}</h2>
-          <p className="article-article__category">
+          <div className="article-article__category">
             <Link to={category.path}>{category.text}</Link>・{releaseTime}
-          </p>
-          <p className="article-article__description">
+          </div>
+          <div className="article-article__description">
             {convertArticleToComponent(article)}
-          </p>
+          </div>
         </div>
         <div className="article-topic">
           {topic.map(({ text, path }) => (
@@ -116,7 +116,10 @@ const Article = ({
         </div>
       </article>
       {enlargedImageUrl && (
-        <Dialog onClose={() => setEnlargedImageUrl("")}>
+        <Dialog
+          onClose={() => setEnlargedImageUrl("")}
+          insertDomTree={document.body}
+        >
           <img className="enlarge-image" src={enlargedImageUrl} />
         </Dialog>
       )}
