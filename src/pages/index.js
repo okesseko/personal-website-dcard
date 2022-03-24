@@ -75,7 +75,9 @@ const App = () => {
             title="Title"
             onClick={() => {
               navigate(`/post/${index}`, {
-                state: { oldLocation: JSON.parse(JSON.stringify(location)) },
+                state: {
+                  oldLocation: JSON.parse(JSON.stringify(location)),
+                },
               })
               console.log("article click")
             }}
