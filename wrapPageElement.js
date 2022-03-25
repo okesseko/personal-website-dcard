@@ -35,7 +35,12 @@ const WrapPageElement = () => (
       ],
       topicItems: [
         { type: "title", text: "文章分類", value: "/forum/title" },
-        { type: "image", imageUrl: react, text: "React", value: "/forum/react" },
+        {
+          type: "image",
+          imageUrl: react,
+          text: "React",
+          value: "/forum/react",
+        },
         {
           type: "image",
           imageUrl: reactNative,
@@ -57,7 +62,10 @@ const WrapPageElement = () => (
         const { oldLocation } = location.state || {}
         return (
           <>
-            <Router location={oldLocation || location}>
+            <Router
+              location={oldLocation || location}
+              style={{ height: "100%" }}
+            >
               <AllPost path="/" />
               <ArticlePost path="post/:id" />
               <Search path="search" />
@@ -68,7 +76,7 @@ const WrapPageElement = () => (
                 insertDomTree={document.body}
                 onClose={() => navigate("/")}
               >
-                <DialogArticle />
+                <DialogArticle oldLocation={oldLocation} />
               </Dialog>
             )}
           </>
