@@ -1,9 +1,10 @@
-import React, { useLayoutEffect } from "react"
-import { navigate } from "gatsby"
 import { useLocation } from "@reach/router"
+import { navigate } from "gatsby"
 import PropTypes from "prop-types"
-import Header from "../header/Header"
-import Sidebar from "../sidebar/Sidebar"
+import React, { useLayoutEffect } from "react"
+
+import Header from "@Components/header"
+import Sidebar from "@Components/sidebar"
 import "./layout.scss"
 
 const Layout = ({ asideContent, children, headerProps, sidebarProps }) => {

@@ -1,15 +1,16 @@
+import { Link } from "gatsby"
+import PropTypes from "prop-types"
 import React, { useState } from "react"
 import {
   AiFillCloseCircle,
-  AiOutlineSearch,
   AiFillGithub,
+  AiOutlineSearch,
 } from "react-icons/ai"
 import { FaLinkedin } from "react-icons/fa"
 import { IoMdMail } from "react-icons/io"
-import { Link } from "gatsby"
 
-import logo from "../../../images/logo.svg"
-import PropTypes from "prop-types"
+import logo from "@Images/logo.svg"
+
 import "./header.scss"
 
 const Header = ({ placeholder, onSearch }) => {

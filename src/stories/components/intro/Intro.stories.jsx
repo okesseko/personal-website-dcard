@@ -1,6 +1,7 @@
 import React from "react"
+
+import imgTest from "@Images/img-test.png"
 import Intro from "./Intro"
-import imgTest from "../../../images/img-test.png"
 
 export default {
   title: "Components/Intro",

@@ -1,6 +1,6 @@
+import PropTypes from "prop-types"
 import React, { useEffect } from "react"
 import ReactDOM from "react-dom"
-import PropTypes from "prop-types"
 import "./dialog.scss"
 
 const Dialog = ({ children, dialogStyle, onClose, insertDomTree }) => {

@@ -1,6 +1,7 @@
-import React from "react"
+import { Link, Match } from "@reach/router"
 import PropTypes from "prop-types"
-import { Match, Link } from "@reach/router"
+import React from "react"
+
 import "./sidebarItem.scss"
 
 const SidebarItem = ({

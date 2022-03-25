@@ -1,8 +1,9 @@
 import React from "react"
-import SidebarItem from "./SidebarItem"
 import { CgMenuBoxed } from "react-icons/cg"
 import { FaFire } from "react-icons/fa"
-import imgTest from "../../../images/img-test.png"
+
+import imgTest from "@Images/img-test.png"
+import SidebarItem from "./SidebarItem"
 
 export default {
   title: "Components/SidebarItem",

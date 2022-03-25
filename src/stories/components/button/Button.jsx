@@ -1,5 +1,5 @@
-import React from "react"
 import PropTypes from "prop-types"
+import React from "react"
 import "./button.scss"
 
 const Button = ({ color, text, disable, onClick }) => {

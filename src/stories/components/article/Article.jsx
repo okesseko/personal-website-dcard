@@ -1,8 +1,9 @@
-import React, { useState } from "react"
-import PropTypes from "prop-types"
-import { IoMdClose } from "react-icons/io"
 import { Link } from "gatsby"
-import Dialog from "../dialog/Dialog"
+import PropTypes from "prop-types"
+import React, { useState } from "react"
+import { IoMdClose } from "react-icons/io"
+
+import Dialog from "@Components/dialog"
 import "./article.scss"
 
 // difference between IMAGE_REGEX_ALL and IMAGE_REGEX in $1 variable

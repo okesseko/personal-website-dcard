@@ -1,7 +1,8 @@
 import React from "react"
-import Sidebar from "./Sidebar"
 import { CgMenuBoxed } from "react-icons/cg"
-import imgTest from "../../../images/img-test.png"
+
+import imgTest from "@Images/img-test.png"
+import Sidebar from "./Sidebar"
 
 export default {
   title: "Components/Sidebar",

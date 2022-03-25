@@ -1,23 +1,22 @@
+import { Location, Router } from "@reach/router"
+import { navigate } from "gatsby"
 import React from "react"
-import Layout from "./src/stories/components/layout/Layout"
-
 import { CgMenuBoxed } from "react-icons/cg"
 import { FaFire } from "react-icons/fa"
-import imgTest from "./src/images/img-test.png"
-import react from "./src/images/react-icon.png"
-import reactNative from "./src/images/react-native-icon.png"
-import nft from "./src/images/NFT.png"
 
-import { navigate } from "gatsby"
+import imgTest from "@Images/img-test.png"
+import nft from "@Images/NFT.png"
+import react from "@Images/react-icon.png"
+import reactNative from "@Images/react-native-icon.png"
 
-import { Router, Location } from "@reach/router"
-import AllPost from "./src/pages/index"
-import ArticlePost from "./src/pages/post/[id]"
-import DialogArticle from "./src/pages/post/dialogArticle"
-import Search from "./src/pages/search"
-import NotFoundPage from "./src/pages/404"
+import NotFoundPage from "@Pages/404"
+import AllPost from "@Pages/index"
+import DialogArticle from "@Pages/post/dialogArticle"
+import ArticlePost from "@Pages/post/[id]"
+import Search from "@Pages/search"
 
-import Dialog from "./src/stories/components/dialog/Dialog"
+import Dialog from "@Components/dialog"
+import Layout from "@Components/layout"
 
 // Pass all props (hence the ...props) to the layout component so it has access to things like pageContext or location
 const WrapPageElement = () => (

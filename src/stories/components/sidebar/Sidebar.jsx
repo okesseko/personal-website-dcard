@@ -1,6 +1,7 @@
-import React from "react"
 import PropTypes from "prop-types"
-import SidebarItem from "../sidebarItem/SidebarItem"
+import React from "react"
+
+import SidebarItem from "@Components/sidebarItem"
 import "./sidebar.scss"
 
 const Sidebar = ({ fixedItems, topicItems, onClick }) => {

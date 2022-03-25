@@ -1,7 +1,8 @@
 import React from "react"
-import Layout from "./Layout"
 import { CgMenuBoxed } from "react-icons/cg"
-import imgTest from "../../../images/img-test.png"
+
+import imgTest from "@Images/img-test.png"
+import Layout from "./Layout"
 
 export default {
   title: "Components/Layout",
