@@ -1,13 +1,16 @@
-import React, { useState } from "react"
 import { Link } from "gatsby"
-import Article from "../../stories/components/article/Article"
-import imgTest from "../../images/img-test.png"
-import Intro from "../../stories/components/intro/Intro"
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi"
 import { useLocation } from "@reach/router"
+import React, { useState } from "react"
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi"
+
+import Article from "@Components/article"
+import Intro from "@Components/intro"
+import imgTest from "@Images/img-test.png"
+
 import "./dialogArticle.scss"
 
 const MOCK_INFO = {
+  id: 1,
   authImg: imgTest,
   articleImg: imgTest,
   category: "test",
@@ -19,7 +22,7 @@ const MOCK_INFO = {
   title: "Title",
 }
 
-const DialogArticle = () => {
+const DialogArticle = ({ oldLocation }) => {
   const location = useLocation()
   const [maskDisplayed, setMaskDisplayed] = useState(false)
 
@@ -29,7 +32,7 @@ const DialogArticle = () => {
         className="dialog-article__link"
         to={`/post/${articleInfo.id}`}
         state={{
-          oldLocation: JSON.parse(JSON.stringify(location)),
+          oldLocation: JSON.parse(JSON.stringify(oldLocation || location)),
         }}
         onMouseEnter={() => setMaskDisplayed(true)}
         onMouseLeave={() => setMaskDisplayed(false)}
@@ -49,8 +52,8 @@ const DialogArticle = () => {
   }
 
   return (
-    <div className="dialog-article">
-      <LinkArrow direction="left" articleInfo={{ id: 0, ...MOCK_INFO }} />
+    <div className="dialog-article" onClick={e => e.stopPropagation()}>
+      <LinkArrow direction="left" articleInfo={MOCK_INFO} />
 
       <div className="dialog-article__main">
         <Article
@@ -72,7 +75,7 @@ const DialogArticle = () => {
         />
       </div>
 
-      <LinkArrow direction="right" articleInfo={{ id: 1, ...MOCK_INFO }} />
+      <LinkArrow direction="right" articleInfo={MOCK_INFO} />
 
       <div
         className={`dialog-article__mask ${
