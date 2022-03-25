@@ -1,11 +1,11 @@
+import { navigate } from "gatsby"
+import { useLocation } from "@reach/router"
 import React from "react"
 
-import { navigate } from "gatsby"
-import Intro from "../stories/components/intro/Intro"
-import Seo from "../components/seo"
+import Intro from "@Components/intro"
+import Seo from "@Components/seo"
 
-import imgTest from "../images/img-test.png"
-import { useLocation } from "@reach/router"
+import imgTest from "@Images/img-test.png"
 
 import "./index.scss"
 

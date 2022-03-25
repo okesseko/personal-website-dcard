@@ -1,6 +1,7 @@
 import React from "react"
-import Article from "../../stories/components/article/Article"
-import imgTest from "../../images/img-test.png"
+
+import Article from "@Components/article"
+import imgTest from "@Images/img-test.png"
 
 const ArticlePost = () => {
   return (

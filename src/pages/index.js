@@ -1,14 +1,12 @@
-import React, { useState } from "react"
-
 import { navigate } from "gatsby"
-
-import { BsFillCaretDownFill } from "react-icons/bs"
-import Menu from "../stories/components/menu/Menu"
-import Intro from "../stories/components/intro/Intro"
-import Seo from "../components/seo"
-
-import imgTest from "../images/img-test.png"
 import { useLocation } from "@reach/router"
+import React, { useState } from "react"
+import { BsFillCaretDownFill } from "react-icons/bs"
+
+import Menu from "@Components/menu"
+import Intro from "@Components/intro"
+import Seo from "@Components/seo"
+import imgTest from "@Images/img-test.png"
 
 import "./index.scss"
 
