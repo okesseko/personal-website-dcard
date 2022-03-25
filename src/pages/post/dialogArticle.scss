@@ -82,6 +82,7 @@
     z-index: 900;
     z-index: 50;
     transition: opacity 0.3s linear 0s;
+    pointer-events: none;
 
     &--displayed {
       opacity: 1;
