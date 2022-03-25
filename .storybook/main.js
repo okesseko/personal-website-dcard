@@ -26,6 +26,13 @@ module.exports = {
     })
 
     config.resolve.mainFields = ["browser", "module", "main"]
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@Components": path.resolve(__dirname, "../src/stories/components"),
+      "@Pages": path.resolve(__dirname, "../src/pages"),
+      "@Images": path.resolve(__dirname, "../src/images"),
+    }
     return config
   },
 }
