@@ -1,0 +1,12 @@
+.not-found-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  height: 100%;
+  flex-direction: column;
+
+  &__information {
+    margin: 1rem 0;
+  }
+}
