@@ -1,5 +1,4 @@
 import { Link } from "gatsby"
-import { useLocation } from "@reach/router"
 import React, { useState } from "react"
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi"
 
@@ -22,8 +21,7 @@ const MOCK_INFO = {
   title: "Title",
 }
 
-const DialogArticle = ({ oldLocation }) => {
-  const location = useLocation()
+const DialogArticle = ({ oldLocation, location }) => {
   const [maskDisplayed, setMaskDisplayed] = useState(false)
 
   const LinkArrow = ({ direction, articleInfo }) => {
