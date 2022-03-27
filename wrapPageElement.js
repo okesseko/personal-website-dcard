@@ -7,6 +7,7 @@ import AllPost from "@Pages/index"
 import DialogArticle from "@Pages/post/dialogArticle"
 import ArticlePost from "@Pages/post/[id]"
 import Search from "@Pages/search"
+import Forum from "@Pages/forum"
 
 import Dialog from "@Components/dialog"
 import Layout from "@Components/layout"
@@ -26,6 +27,7 @@ const WrapPageElement = () => (
               <AllPost path="/" />
               <ArticlePost path="post/:id" />
               <Search path="search" />
+              <Forum path="forum/:category" />
               <NotFoundPage default />
             </Router>
             {oldLocation && (
