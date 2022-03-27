@@ -32,6 +32,7 @@ module.exports = {
       "@Components": path.resolve(__dirname, "../src/stories/components"),
       "@Pages": path.resolve(__dirname, "../src/pages"),
       "@Images": path.resolve(__dirname, "../src/images"),
+      "@Api": path.resolve(__dirname, "../src/api"),
     }
     return config
   },
