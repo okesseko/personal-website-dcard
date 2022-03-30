@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 
 import { getArticle } from "@Api"
 
+import CategoryContent from "@Contents/CategoryContent"
+
 import Template from "@Components/template"
 
 import "./index.scss"
@@ -24,11 +26,16 @@ const App = ({ location }) => {
   }
 
   return (
-    <Template
-      introList={introList}
-      location={location}
-      onOrderChange={getIntroList}
-    />
+    <CategoryContent.Consumer>
+      {categoryList => (
+        <Template
+          categoryList={categoryList}
+          introList={introList}
+          location={location}
+          onOrderChange={getIntroList}
+        />
+      )}
+    </CategoryContent.Consumer>
   )
 }
 
