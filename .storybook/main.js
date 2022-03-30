@@ -29,10 +29,12 @@ module.exports = {
 
     config.resolve.alias = {
       ...config.resolve.alias,
-      "@Components": path.resolve(__dirname, "../src/stories/components"),
-      "@Pages": path.resolve(__dirname, "../src/pages"),
-      "@Images": path.resolve(__dirname, "../src/images"),
       "@Api": path.resolve(__dirname, "../src/api"),
+      "@Components": path.resolve(__dirname, "../src/stories/components"),
+      "@Contents": path.resolve(__dirname, "..src/content"),
+      "@Images": path.resolve(__dirname, "../src/images"),
+      "@Pages": path.resolve(__dirname, "../src/pages"),
+      "@Utils": path.resolve(__dirname, "../src/utils"),
     }
     return config
   },
