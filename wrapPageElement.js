@@ -25,7 +25,7 @@ const WrapPageElement = () => (
               style={{ height: "100%" }}
             >
               <AllPost path="/" />
-              <ArticlePost path="post/:id" />
+              <ArticlePost path="post/:articleId" />
               <Search path="search" />
               <Forum path="forum/:category" />
               <NotFoundPage default />
@@ -35,7 +35,10 @@ const WrapPageElement = () => (
                 insertDomTree={document.body}
                 onClose={() => navigate("/")}
               >
-                <DialogArticle oldLocation={oldLocation} />
+                <DialogArticle
+                  oldLocation={oldLocation}
+                  articleId={location.pathname.replace("/post/", "")}
+                />
               </Dialog>
             )}
           </>
