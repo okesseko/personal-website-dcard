@@ -1,17 +1,19 @@
-import { Link } from "gatsby"
-import React, { useState } from "react"
+import { Link, navigate } from "gatsby"
+import React, { useEffect, useState } from "react"
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi"
 
+import { getArticle } from "@Api"
+import Seo from "@Components/seo"
 import Article from "@Components/article"
 import Intro from "@Components/intro"
-import imgTest from "@Images/img-test.png"
+import avatar from "@Images/avatar.jpg"
 
 import "./dialogArticle.scss"
 
 const MOCK_INFO = {
-  id: 1,
-  authImg: imgTest,
-  articleImg: imgTest,
+  id: 2,
+  authImg: avatar,
+  articleImg: avatar,
   category: "test",
   description:
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries but also the leap into electronic typesetting remaining essentially unchanged.",
@@ -21,8 +23,23 @@ const MOCK_INFO = {
   title: "Title",
 }
 
-const DialogArticle = ({ oldLocation, location }) => {
+const DialogArticle = ({ oldLocation, location, articleId, ...props }) => {
   const [maskDisplayed, setMaskDisplayed] = useState(false)
+  const [article, setArticle] = useState({})
+
+  useEffect(() => {
+    getArticleInfo()
+  }, [articleId])
+
+  function getArticleInfo() {
+    getArticle({ id: articleId })
+      .then(res => {
+        setArticle(res.data.articles[0])
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
   const LinkArrow = ({ direction, articleInfo }) => {
     return (
@@ -50,37 +67,36 @@ const DialogArticle = ({ oldLocation, location }) => {
   }
 
   return (
-    <div className="dialog-article" onClick={e => e.stopPropagation()}>
-      <LinkArrow direction="left" articleInfo={MOCK_INFO} />
+    <>
+      <Seo title={`${article.title} - ${article.category} |Jimmy Lin`} />
+      <div className="dialog-article" onClick={e => e.stopPropagation()}>
+        <LinkArrow direction="left" articleInfo={MOCK_INFO} />
 
-      <div className="dialog-article__main">
-        <Article
-          article={`Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n
-   ![image1](https://pic1.zhimg.com/v2-81a06ae54177e4beccf4fd9c20f267a8_b.jpg) ![image2](https://pic1.zhimg.com/v2-81a06ae54177e4beccf4fd9c20f267a8_b.jpg)
-  Lorem Ipsum is simply dummy [google link](https://google.com)  Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy
-  `}
-          authImg={imgTest}
-          category={{ text: "category", path: "/category" }}
-          emotionIcon="🤣🥰🤩"
-          emotionNumber={1}
-          releaseTime="2020/01/01"
-          title="Title"
-          topic={[
-            { text: "topic1", path: "/topic1" },
-            { text: "topic2", path: "/topic2" },
-          ]}
+        <div className="dialog-article__main">
+          <Article
+            article={article.content}
+            authImg={avatar}
+            category={{
+              text: article.category,
+              path: `/forum/${article.category}`,
+            }}
+            emotionIcon={article.emotionIcon}
+            emotionNumber={article.emotionNumber}
+            releaseTime={article.releaseTime}
+            title={article.title}
+            onClick={() => navigate("/")}
+          />
+        </div>
+
+        <LinkArrow direction="right" articleInfo={MOCK_INFO} />
+
+        <div
+          className={`dialog-article__mask ${
+            maskDisplayed && "dialog-article__mask--displayed"
+          }`}
         />
       </div>
-
-      <LinkArrow direction="right" articleInfo={MOCK_INFO} />
-
-      <div
-        className={`dialog-article__mask ${
-          maskDisplayed && "dialog-article__mask--displayed"
-        }`}
-      />
-    </div>
+    </>
   )
 }
 

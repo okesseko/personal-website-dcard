@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 
 import { getArticle } from "@Api"
 
+import Seo from "@Components/seo"
+
 import CategoryContent from "@Contents/CategoryContent"
 
 import Template from "@Components/template"
@@ -18,7 +20,8 @@ const App = ({ location }) => {
   function getIntroList(order = "desc") {
     getArticle({ order })
       .then(res => {
-        setIntroList(res.data)
+        console.log(res.data.articles)
+        setIntroList(res.data.articles)
       })
       .catch(err => {
         console.log(err)
@@ -26,16 +29,19 @@ const App = ({ location }) => {
   }
 
   return (
-    <CategoryContent.Consumer>
-      {categoryList => (
-        <Template
-          categoryList={categoryList}
-          introList={introList}
-          location={location}
-          onOrderChange={getIntroList}
-        />
-      )}
-    </CategoryContent.Consumer>
+    <>
+      <Seo title={`Jimmy Lin`} />
+      <CategoryContent.Consumer>
+        {categoryList => (
+          <Template
+            categoryList={categoryList}
+            introList={introList}
+            location={location}
+            onOrderChange={getIntroList}
+          />
+        )}
+      </CategoryContent.Consumer>
+    </>
   )
 }
 

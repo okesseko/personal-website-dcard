@@ -1,52 +1,48 @@
-import { navigate } from "gatsby"
-import { useLocation } from "@reach/router"
-import React from "react"
+import React, { useEffect, useState } from "react"
 
-import Intro from "@Components/intro"
+import { getArticle } from "@Api"
 import Seo from "@Components/seo"
 
-import imgTest from "@Images/img-test.png"
+import CategoryContent from "@Contents/CategoryContent"
+
+import Template from "@Components/template"
+
+import getQuery from "@Utils/getQuery"
 
 import "./index.scss"
 
-const Search = props => {
-  const location = useLocation()
-  const searchQuery = props.location.search.replace("?query=", "")
+const Search = ({ location }) => {
+  const [introList, setIntroList] = useState([])
+  const searchQuery = getQuery(location)
+
+  useEffect(() => {
+    getIntroList()
+  }, [location.search])
+
+  function getIntroList(order = "desc") {
+    getArticle({ order, search: searchQuery })
+      .then(res => {
+        setIntroList(res.data.articles)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
   return (
-    <div className="all-post">
+    <>
       <Seo title={`search ${searchQuery}`} />
-      <div className="all-post__header">
-        <div className="all-post__header__groups">
-          <span className="all-post__header__groups-tab all-post__header__groups-tab--selected">
-            全部
-          </span>
-        </div>
-      </div>
-      <div style={{ margin: "0px 60px" }}>
-        {new Array(10).fill("").map((_, index) => (
-          <Intro
-            key={index}
-            authImg={imgTest}
-            articleImg={imgTest}
-            category="test"
-            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries but also the leap into electronic typesetting remaining essentially unchanged."
-            emotionIcon="🤣🥰🤩"
-            emotionNumber={1}
-            releaseTime="2020/01/01"
-            title="Title"
-            onClick={() => {
-              navigate(`/post/${index}`, {
-                state: {
-                  oldLocation: JSON.parse(JSON.stringify(location)),
-                },
-              })
-              console.log("article click")
-            }}
+      <CategoryContent.Consumer>
+        {categoryList => (
+          <Template
+            categoryList={categoryList}
+            introList={introList}
+            location={location}
+            onOrderChange={getIntroList}
           />
-        ))}
-      </div>
-    </div>
+        )}
+      </CategoryContent.Consumer>
+    </>
   )
 }
 
