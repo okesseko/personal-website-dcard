@@ -1,4 +1,5 @@
 import { Link } from "gatsby"
+import { useLocation } from "@reach/router"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
 import {
@@ -11,10 +12,13 @@ import { IoMdMail } from "react-icons/io"
 
 import logo from "@Images/logo.svg"
 
+import getQuery from "@Utils/getQuery"
+
 import "./header.scss"
 
 const Header = ({ placeholder, onSearch }) => {
-  const [inputValue, setInputValue] = useState("")
+  const location = useLocation()
+  const [inputValue, setInputValue] = useState(() => getQuery(location))
 
   return (
     <header className="header-wrapper">
