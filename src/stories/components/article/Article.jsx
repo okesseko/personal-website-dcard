@@ -92,7 +92,9 @@ const Article = ({
             <span>@okesseko</span>
           </div>
           {onClick && (
-            <IoMdClose onClick={onClick} size={24} color="rgb(196, 196, 196)" />
+            <div onClick={onClick} className="article-auth__info-close">
+              <IoMdClose size={24} color="rgb(196, 196, 196)" />
+            </div>
           )}
         </div>
         <div className="article-article">
