@@ -21,6 +21,7 @@ const Template = ({
   bannerImg,
   templateCategoryInfo,
   categoryList,
+  isOpenModalRouter,
 }) => {
   const [isOrderMenuOpen, setIsOrderMenuOpen] = useState(false)
   const [orderType, setOrderType] = useState("desc")
@@ -105,13 +106,18 @@ const Template = ({
               emotionNumber={data.emotionNumber}
               releaseTime={dayjs(data.releaseTime).format("YYYY-MM-DD")}
               title={data.title}
-              onClick={() =>
-                navigate(`/post/${data.id}`, {
-                  state: {
-                    oldLocation: JSON.parse(JSON.stringify(location)),
-                  },
-                })
-              }
+              onClick={() => {
+                navigate(
+                  `/post/${data.id}`,
+                  isOpenModalRouter
+                    ? {
+                        state: {
+                          oldLocation: JSON.parse(JSON.stringify(location)),
+                        },
+                      }
+                    : {}
+                )
+              }}
             />
           )
         })}
@@ -149,6 +155,7 @@ Template.propTypes = {
     image: PropTypes.string,
     value: PropTypes.string,
   }),
+  isOpenModalRouter: PropTypes.bool,
 }
 
 export default Template

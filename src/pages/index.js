@@ -34,6 +34,7 @@ const App = ({ location }) => {
       <CategoryContent.Consumer>
         {categoryList => (
           <Template
+            isOpenModalRouter
             categoryList={categoryList}
             introList={introList}
             location={location}
