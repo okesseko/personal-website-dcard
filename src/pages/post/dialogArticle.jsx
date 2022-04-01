@@ -22,6 +22,7 @@ const DialogArticle = ({ oldLocation, location, articleId }) => {
 
   useEffect(() => {
     getArticleInfo()
+    setMaskDisplayed(false)
   }, [articleId])
 
   function getArticleInfo() {
