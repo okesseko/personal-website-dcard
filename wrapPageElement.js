@@ -1,5 +1,4 @@
 import { Location, Router } from "@reach/router"
-import { navigate } from "gatsby"
 import React from "react"
 
 import NotFoundPage from "@Pages/404"
