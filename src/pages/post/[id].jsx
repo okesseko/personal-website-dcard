@@ -24,7 +24,7 @@ const ArticlePost = ({ articleId }) => {
 
   return (
     <>
-      <Seo title={`${article.title} - ${article.category} |Jimmy Lin`} />
+      <Seo title={`${article.title} - ${article.category} | Jimmy Lin`} />
       <Article
         article={article.content}
         authImg={avatar}

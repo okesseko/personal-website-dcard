@@ -31,7 +31,7 @@ const Search = ({ location }) => {
 
   return (
     <>
-      <Seo title={`search ${searchQuery}`} />
+      <Seo title={`[ ${searchQuery} ] 的搜尋結果 | Jimmy Lin`} />
       <CategoryContent.Consumer>
         {categoryList => (
           <Template
