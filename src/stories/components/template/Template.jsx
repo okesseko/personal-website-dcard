@@ -19,7 +19,7 @@ const Template = ({
   onOrderChange,
   isForum,
   bannerImg,
-  templateCategory,
+  templateCategoryInfo,
   categoryList,
 }) => {
   const [isOrderMenuOpen, setIsOrderMenuOpen] = useState(false)
@@ -35,9 +35,6 @@ const Template = ({
       value: "asc",
     },
   ]
-
-  const templateCategoryInfo =
-    getCategoryInfo(categoryList, templateCategory) || {}
 
   return (
     <div className="template">
@@ -140,7 +137,12 @@ Template.propTypes = {
   onOrderChange: PropTypes.func,
   isForum: PropTypes.bool,
   bannerImg: PropTypes.string,
-  templateCategory: PropTypes.string,
+  templateCategoryInfo: {
+    id: PropTypes.string,
+    name: PropTypes.string,
+    image: PropTypes.string,
+    value: PropTypes.string,
+  },
   categoryList: PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
