@@ -38,11 +38,11 @@ const Layout = ({ asideContent, children }) => {
               <Sidebar
                 fixedItems={[
                   { IconComponent: CgMenuBoxed, text: "所有文章", value: "/" },
-                  {
-                    IconComponent: FaFire,
-                    text: "熱門文章",
-                    value: "/popular",
-                  },
+                  // {
+                  //   IconComponent: FaFire,
+                  //   text: "熱門文章",
+                  //   value: "/popular",
+                  // },
                 ]}
                 topicItems={[
                   { type: "title", text: "文章分類", value: "/forum/title" },
