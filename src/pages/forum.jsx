@@ -8,6 +8,8 @@ import CategoryContent from "@Contents/CategoryContent"
 
 import Template from "@Components/template"
 
+import getCategoryInfo from "@Utils/getCategoryInfo"
+
 import "./index.scss"
 
 const Forum = ({ location, category }) => {
@@ -28,24 +30,29 @@ const Forum = ({ location, category }) => {
   }
 
   return (
-    <>
-      <Seo title={`${category} |Jimmy Lin`} />
-      <CategoryContent.Consumer>
-        {categoryList => (
-          <Template
-            isForum
-            templateCategory={category}
-            categoryList={categoryList}
-            introList={introList}
-            location={location}
-            onOrderChange={getIntroList}
-            bannerImg={
-              "https://megapx-assets.dcard.tw/images/c99966a1-03f9-4a69-86d4-df979a970496/full.jpeg"
-            }
-          />
-        )}
-      </CategoryContent.Consumer>
-    </>
+    <CategoryContent.Consumer>
+      {categoryList => {
+        const templateCategoryInfo =
+          getCategoryInfo(categoryList, category) || {}
+
+        return (
+          <div>
+            <Seo title={`${templateCategoryInfo.name} | Jimmy Lin`} />
+            <Template
+              isForum
+              templateCategoryInfo={templateCategoryInfo}
+              categoryList={categoryList}
+              introList={introList}
+              location={location}
+              onOrderChange={getIntroList}
+              bannerImg={
+                "https://megapx-assets.dcard.tw/images/c99966a1-03f9-4a69-86d4-df979a970496/full.jpeg"
+              }
+            />
+          </div>
+        )
+      }}
+    </CategoryContent.Consumer>
   )
 }
 
