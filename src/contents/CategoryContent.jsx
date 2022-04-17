@@ -8,7 +8,7 @@ const CategoryProvide = ({ children }) => {
 
   useEffect(() => {
     getCategory()
-      .then(res => setCategoryList(res.data))
+      .then(res => setCategoryList(res.data.categories))
       .catch(err => console.error(err))
   }, [])
 

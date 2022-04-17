@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
+import Parser from "html-react-parser"
 import "./intro.scss"
 
 const Intro = ({
@@ -21,7 +22,7 @@ const Intro = ({
           {category}・{releaseTime}
         </p>
         <h2 className="intro-article__title">{title}</h2>
-        <p className="intro-article__description">{description}</p>
+        <p className="intro-article__description">{Parser(description)}</p>
         <div className="intro-article__emotion">
           <span className="intro-article__emotion-icon">{emotionIcon}</span>
           <span className="intro-article__emotion-number">{emotionNumber}</span>

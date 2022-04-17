@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
 import { IoMdClose } from "react-icons/io"
+import Parser from 'html-react-parser';
 
 import Dialog from "@Components/dialog"
 import "./article.scss"
@@ -32,40 +33,42 @@ const Article = ({
   const [enlargedImageUrl, setEnlargedImageUrl] = useState("")
 
   const convertArticleToComponent = article => {
-    const splitedArticle = splitArticle(article)
+    return Parser(article)
 
-    return splitedArticle.map((article, index) => {
-      if (article.match(IMAGE_REGEX)) {
-        const [text, url] = article.replace(IMAGE_REGEX, "$1,$2").split(",")
-        return (
-          <div
-            key={index}
-            className="article-article__description-image"
-            onClick={() => enlargeImage(url)}
-          >
-            <img alt={text || ""} src={url} />
-          </div>
-        )
-      } else if (article.match(LINK_REGEX)) {
-        const [text, url] = article.replace(LINK_REGEX, "$1,$2").split(",")
-        return (
-          <a
-            key={index}
-            href={url}
-            target="_blank"
-            className="article-article__description-link"
-          >
-            {text}
-          </a>
-        )
-      }
-      return (
-        <span
-          className="article-article__description-text"
-          key={index}
-        >{`${article}`}</span>
-      )
-    })
+    // const splitedArticle = splitArticle(article)
+
+    // return splitedArticle.map((article, index) => {
+    //   if (article.match(IMAGE_REGEX)) {
+    //     const [text, url] = article.replace(IMAGE_REGEX, "$1,$2").split(",")
+    //     return (
+    //       <div
+    //         key={index}
+    //         className="article-article__description-image"
+    //         onClick={() => enlargeImage(url)}
+    //       >
+    //         <img alt={text || ""} src={url} />
+    //       </div>
+    //     )
+    //   } else if (article.match(LINK_REGEX)) {
+    //     const [text, url] = article.replace(LINK_REGEX, "$1,$2").split(",")
+    //     return (
+    //       <a
+    //         key={index}
+    //         href={url}
+    //         target="_blank"
+    //         className="article-article__description-link"
+    //       >
+    //         {text}
+    //       </a>
+    //     )
+    //   }
+    //   return (
+    //     <span
+    //       className="article-article__description-text"
+    //       key={index}
+    //     >{`${article}`}</span>
+    //   )
+    // })
   }
 
   const splitArticle = article =>
