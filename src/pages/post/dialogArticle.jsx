@@ -64,7 +64,7 @@ const DialogArticle = ({ oldLocation, location, articleId }) => {
             authImg={avatar}
             articleImg={articleInfo.previewImg}
             category={templateCategoryInfo.name}
-            description={articleInfo.content}
+            intro={articleInfo.intro}
             emotionIcon={articleInfo.emotionIcon}
             emotionNumber={articleInfo.emotionNumber}
             releaseTime={dayjs(articleInfo.releaseTime).format("YYYY-MM-DD")}
