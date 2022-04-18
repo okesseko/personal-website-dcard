@@ -1,23 +1,11 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { IoMdClose } from "react-icons/io"
-import Parser from 'html-react-parser';
+import Parser from "html-react-parser"
 
 import Dialog from "@Components/dialog"
 import "./article.scss"
-
-// difference between IMAGE_REGEX_ALL and IMAGE_REGEX in $1 variable
-// IMAGE_REGEX_ALL = (!()[]) = ($1)
-// IMAGE_REGEX = !($1)[$2]
-const IMAGE_REGEX_ALL =
-  /(!\[[\w\u2E80-\u9FFF]*\]\(https?:\/\/[\w-\.]+[:\d+]?[\/[~\w\/\.-]*]?[\?-\S*]?[#-\S*]?\))/gm
-const IMAGE_REGEX =
-  /!\[([\w\u2E80-\u9FFF]*)\]\((https?:\/\/[\w-\.]+[:\d+]?[\/[~\w\/\.-]*]?[\?-\S*]?[#-\S*]?)\)/gm
-const LINK_REGEX_ALL =
-  /(\[[\w\u2E80-\u9FFF]*\]\(https?:\/\/[\w-\.]+[:\d+]?[\/[~\w\/\.-]*]?[\?-\S*]?[#-\S*]?\))/gm
-const LINK_REGEX =
-  /\[([\w\u2E80-\u9FFF]*)\]\((https?:\/\/[\w-\.]+[:\d+]?[\/[~\w\/\.-]*]?[\?-\S*]?[#-\S*]?)\)/gm
 
 const Article = ({
   article,
@@ -32,49 +20,17 @@ const Article = ({
 }) => {
   const [enlargedImageUrl, setEnlargedImageUrl] = useState("")
 
-  const convertArticleToComponent = article => {
-    return Parser(article)
-
-    // const splitedArticle = splitArticle(article)
-
-    // return splitedArticle.map((article, index) => {
-    //   if (article.match(IMAGE_REGEX)) {
-    //     const [text, url] = article.replace(IMAGE_REGEX, "$1,$2").split(",")
-    //     return (
-    //       <div
-    //         key={index}
-    //         className="article-article__description-image"
-    //         onClick={() => enlargeImage(url)}
-    //       >
-    //         <img alt={text || ""} src={url} />
-    //       </div>
-    //     )
-    //   } else if (article.match(LINK_REGEX)) {
-    //     const [text, url] = article.replace(LINK_REGEX, "$1,$2").split(",")
-    //     return (
-    //       <a
-    //         key={index}
-    //         href={url}
-    //         target="_blank"
-    //         className="article-article__description-link"
-    //       >
-    //         {text}
-    //       </a>
-    //     )
-    //   }
-    //   return (
-    //     <span
-    //       className="article-article__description-text"
-    //       key={index}
-    //     >{`${article}`}</span>
-    //   )
-    // })
-  }
-
-  const splitArticle = article =>
-    article
-      .split(new RegExp(IMAGE_REGEX_ALL.source + "|" + LINK_REGEX_ALL.source))
-      .filter(e => e)
+  useEffect(() => {
+    // add image click event to img element
+    if (document) {
+      const images = document.querySelectorAll(
+        ".article-article__description img"
+      )
+      images.forEach(element =>
+        element.addEventListener("click", () => enlargeImage(element.src))
+      )
+    }
+  }, [article])
 
   const enlargeImage = url => {
     setEnlargedImageUrl(url)
@@ -105,9 +61,7 @@ const Article = ({
           <div className="article-article__category">
             <Link to={category.path}>{category.text}</Link>・{releaseTime}
           </div>
-          <div className="article-article__description">
-            {convertArticleToComponent(article)}
-          </div>
+          <div className="article-article__description">{Parser(article)}</div>
         </div>
         <div className="article-topic">
           {topic.map(({ text, path }) => (
