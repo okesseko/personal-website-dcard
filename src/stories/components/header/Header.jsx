@@ -10,7 +10,7 @@ import {
 import { FaLinkedin } from "react-icons/fa"
 import { IoMdMail } from "react-icons/io"
 
-import logo from "@Images/logo.svg"
+import logo from "@Images/logo.png"
 
 import getQuery from "@Utils/getQuery"
 
