@@ -11,7 +11,7 @@ Your can click blew link to get more info
 ### Content Management System: [Personal Website CMS](https://github.com/okesseko/personal-website-cms)
 ### Backend Server: [Personal Website Backend](https://github.com/okesseko/personal-website-backend)
 
-# Designed
+# Design
 This site design reference [Dcard](https://www.dcard.tw/f) which is my favor Forum website
 
 # Getting Started
