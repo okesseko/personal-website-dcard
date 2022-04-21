@@ -11,7 +11,7 @@ module.exports = {
     },
     description: `My personal website project`,
   },
-  pathPrefix: "/personal-website-dcard",
+  pathPrefix: process.env.GATSBY_PATH_PREFIX,
   plugins: [
     `gatsby-plugin-image`,
     {
