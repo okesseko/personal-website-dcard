@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: ".env",
+})
+
 module.exports = {
   siteMetadata: {
     title: `Jimmy personal website`,
@@ -7,6 +11,7 @@ module.exports = {
     },
     description: `My personal website project`,
   },
+  pathPrefix: "/personal-website-dcard",
   plugins: [
     `gatsby-plugin-image`,
     {
