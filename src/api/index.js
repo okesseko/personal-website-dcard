@@ -1,7 +1,10 @@
 import axios from "axios"
 
 const defaultRequest = axios.create({
-  baseURL: process.env.GATSBY_API_URL || "http://localhost:9000",
+  baseURL:
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:9000"
+      : process.env.GATSBY_API_URL,
   headers: {
     "Access-Control-Allow-Origin": "*",
   },
