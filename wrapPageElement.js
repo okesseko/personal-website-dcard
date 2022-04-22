@@ -11,10 +11,6 @@ import Forum from "@Pages/forum"
 import Dialog from "@Components/dialog"
 import Layout from "@Components/layout"
 
-const RootPath = ({ children }) => {
-  return <div>{children}</div>
-}
-
 // Pass all props (hence the ...props) to the layout component so it has access to things like pageContext or location
 const WrapPageElement = () => (
   <Layout>
@@ -27,18 +23,10 @@ const WrapPageElement = () => (
               location={oldLocation || location}
               style={{ height: "100%" }}
             >
-              <RootPath
-                path={
-                  process.env.NODE_ENV === "development"
-                    ? "/"
-                    : process.env.GATSBY_PATH_PREFIX
-                }
-              >
-                <AllPost path="/" />
-                <ArticlePost path="post/:articleId" />
-                <Search path="search" />
-                <Forum path="forum/:category" />
-              </RootPath>
+              <AllPost path="/" />
+              <ArticlePost path="post/:articleId" />
+              <Search path="search" />
+              <Forum path="forum/:category" />
               <NotFoundPage default />
             </Router>
             {oldLocation && (
