@@ -11,7 +11,6 @@ module.exports = {
     },
     description: `My personal website project`,
   },
-  pathPrefix: process.env.GATSBY_PATH_PREFIX,
   plugins: [
     `gatsby-plugin-image`,
     {
