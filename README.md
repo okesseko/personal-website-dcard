@@ -4,6 +4,8 @@
 
 ![banner](/docs/banner.gif)
 
+## **[Click me to see the website](https://personal-website-dcard.okesseko.tk/)**
+
 # About `Personal Website Project`
 It is a full-stack personal website system, consisting of project three elements **Main Website**, **Backend Server** and **Content Management System**
 
