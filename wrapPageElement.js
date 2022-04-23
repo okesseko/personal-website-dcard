@@ -6,7 +6,7 @@ import AllPost from "@Pages/index"
 import DialogArticle from "@Pages/post/dialogArticle"
 import ArticlePost from "@Pages/post/[id]"
 import Search from "@Pages/search"
-import Forum from "@Pages/forum"
+import Forum from "@Pages/forum/[category]"
 
 import Dialog from "@Components/dialog"
 import Layout from "@Components/layout"
