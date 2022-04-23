@@ -143,18 +143,20 @@ Template.propTypes = {
   onOrderChange: PropTypes.func,
   isForum: PropTypes.bool,
   bannerImg: PropTypes.string,
-  templateCategoryInfo: {
-    id: PropTypes.string,
-    name: PropTypes.string,
-    image: PropTypes.string,
-    value: PropTypes.string,
-  },
-  categoryList: PropTypes.shape({
+  templateCategoryInfo: PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
     image: PropTypes.string,
     value: PropTypes.string,
   }),
+  categoryList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      image: PropTypes.string,
+      value: PropTypes.string,
+    })
+  ),
   isOpenModalRouter: PropTypes.bool,
 }
 
