@@ -27,7 +27,7 @@ const Intro = ({
           <span className="intro-article__emotion-number">{emotionNumber}</span>
         </div>
       </div>
-      <img className="intro-image" src={articleImg} />
+      {articleImg && <img className="intro-image" src={articleImg} />}
     </article>
   )
 }
