@@ -27,7 +27,12 @@ const Intro = ({
           <span className="intro-article__emotion-number">{emotionNumber}</span>
         </div>
       </div>
-      {articleImg && <img className="intro-image" src={articleImg} />}
+      {articleImg && (
+        <div
+          className="intro-image"
+          style={{ backgroundImage: `url(${articleImg})` }}
+        />
+      )}
     </article>
   )
 }

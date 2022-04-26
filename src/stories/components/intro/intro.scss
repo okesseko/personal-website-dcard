@@ -59,6 +59,9 @@
     margin: 0 0 0.625rem 1.25rem;
     width: 5rem;
     height: 5rem;
+    background-position: center;
+    background-size: cover;
     border-radius: 0.75rem;
+    flex-shrink: 0;
   }
 }
