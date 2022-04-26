@@ -66,7 +66,10 @@ const Template = ({
             </span>
             <div
               className="template__header__groups__order-selector"
-              onClick={() => setIsOrderMenuOpen(true)}
+              onClick={e => {
+                e.stopPropagation()
+                setIsOrderMenuOpen(true)
+              }}
             >
               {orderMenu.find(item => item.value === orderType).text}
               <BsFillCaretDownFill
