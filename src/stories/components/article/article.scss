@@ -84,6 +84,12 @@
           color: #3397cf;
         }
       }
+
+      iframe {
+        // 4:3 screen size
+        width: 100%;
+        height: 28.2rem;
+      }
     }
   }
 
