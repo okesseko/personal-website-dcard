@@ -23,7 +23,12 @@ const SidebarItem = ({
         )
 
       case "image":
-        return <img className="sidebarItem-image" src={imageUrl} />
+        return (
+          <div
+            className="sidebarItem-image"
+            style={{ backgroundImage: `url(${imageUrl})` }}
+          />
+        )
 
       default:
         return null
