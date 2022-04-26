@@ -6,6 +6,7 @@ import Parser from "html-react-parser"
 
 import Dialog from "@Components/dialog"
 import "./article.scss"
+import dayjs from "dayjs"
 
 const Article = ({
   article,
@@ -59,7 +60,8 @@ const Article = ({
         <div className="article-article">
           <h2 className="article-article__title">{title}</h2>
           <div className="article-article__category">
-            <Link to={category.path}>{category.text}</Link>・{releaseTime}
+            <Link to={category.path}>{category.text}</Link>・
+            {dayjs(releaseTime).format("YYYY-MM-DD")}
           </div>
           <div className="article-article__description">{Parser(article)}</div>
         </div>
@@ -95,7 +97,6 @@ Article.defaultProps = {
     path: "",
   },
   emotionIcon: "",
-  emotionNumber: 1,
   releaseTime: "",
   title: "",
   topic: [],
