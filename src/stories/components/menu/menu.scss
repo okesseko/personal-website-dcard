@@ -1,5 +1,5 @@
 .menu {
-  position: fixed;
+  position: absolute;
   margin-top: 0.5rem;
   width: 10rem;
   transform: translate(var(--menu-transition-x), var(--menu-transition-y));

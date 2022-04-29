@@ -6,6 +6,7 @@ import dayjs from "dayjs"
 
 import Menu from "@Components/menu"
 import Intro from "@Components/intro"
+import Loading from "@Components/loading"
 
 import avatar from "@Images/avatar.jpg"
 
@@ -94,38 +95,50 @@ const Template = ({
         </div>
       </div>
       <div className="template__main">
-        {introList.map(data => {
-          const introCategoryInfo =
-            getCategoryInfo(categoryList, data.category) || {}
+        {introList.length ? (
+          <>
+            {introList.map(data => {
+              const introCategoryInfo =
+                getCategoryInfo(categoryList, data.category) || {}
 
-          return (
-            <Intro
-              key={data.id}
-              authImg={avatar}
-              articleImg={data.previewImg}
-              category={introCategoryInfo.name}
-              intro={data.intro}
-              emotionIcon={data.emotionIcon}
-              emotionNumber={data.emotionNumber}
-              releaseTime={dayjs(data.releaseTime).format("YYYY-MM-DD")}
-              title={data.title}
-              onClick={() => {
-                navigate(
-                  `/post/${data.id}`,
-                  isOpenModalRouter
-                    ? {
-                        state: {
-                          oldLocation: JSON.parse(JSON.stringify(location)),
-                          order: orderType,
-                        },
-                      }
-                    : {}
-                )
-              }}
-            />
-          )
-        })}
-        <div className="template__main-end">沒有更多文章囉！</div>
+              return (
+                <Intro
+                  key={data.id}
+                  authImg={avatar}
+                  articleImg={data.previewImg}
+                  category={introCategoryInfo.name}
+                  intro={data.intro}
+                  emotionIcon={data.emotionIcon}
+                  emotionNumber={data.emotionNumber}
+                  releaseTime={dayjs(data.releaseTime).format("YYYY-MM-DD")}
+                  title={data.title}
+                  onClick={() => {
+                    navigate(
+                      `/post/${data.id}`,
+                      isOpenModalRouter
+                        ? {
+                            state: {
+                              oldLocation: JSON.parse(JSON.stringify(location)),
+                              order: orderType,
+                            },
+                          }
+                        : {}
+                    )
+                  }}
+                />
+              )
+            })}
+            <div className="template__main-end">沒有更多文章囉！</div>
+          </>
+        ) : (
+          <div
+            className={`template__main-loading  ${
+              isForum && "template__main-loading--hasBanner"
+            }`}
+          >
+            <Loading />
+          </div>
+        )}
       </div>
     </div>
   )

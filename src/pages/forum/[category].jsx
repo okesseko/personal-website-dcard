@@ -20,6 +20,8 @@ const Forum = ({ location, category }) => {
   }, [category])
 
   function getIntroList(order = "desc") {
+    setIntroList([])
+
     getArticle({ order, category })
       .then(res => {
         setIntroList(res.data.articles)
@@ -29,29 +31,29 @@ const Forum = ({ location, category }) => {
       })
   }
 
-   return (
-     <CategoryContent.Consumer>
-       {categoryList => {
-         const templateCategoryInfo =
-           getCategoryInfo(categoryList, category) || {}
+  return (
+    <CategoryContent.Consumer>
+      {categoryList => {
+        const templateCategoryInfo =
+          getCategoryInfo(categoryList, category) || {}
 
-         return (
-           <div>
-             <Seo title={`${templateCategoryInfo.name} | Jimmy Lin`} />
-             <Template
-               isForum
-               templateCategoryInfo={templateCategoryInfo}
-               categoryList={categoryList}
-               introList={introList}
-               location={location}
-               onOrderChange={getIntroList}
-               bannerImg={templateCategoryInfo.image}
-             />
-           </div>
-         )
-       }}
-     </CategoryContent.Consumer>
-   )
+        return (
+          <div>
+            <Seo title={`${templateCategoryInfo.name} | Jimmy Lin`} />
+            <Template
+              isForum
+              templateCategoryInfo={templateCategoryInfo}
+              categoryList={categoryList}
+              introList={introList}
+              location={location}
+              onOrderChange={getIntroList}
+              bannerImg={templateCategoryInfo.image}
+            />
+          </div>
+        )
+      }}
+    </CategoryContent.Consumer>
+  )
 }
 
 export default Forum

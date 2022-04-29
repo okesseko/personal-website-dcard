@@ -1,6 +1,10 @@
 import React from "react"
 import "./loading.scss"
 
-const Loading = () => <div class="loader" />
+const Loading = () => (
+  <div className="loading">
+    <div class="loader" />
+  </div>
+)
 
 export default Loading

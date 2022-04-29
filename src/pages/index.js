@@ -18,6 +18,8 @@ const App = ({ location }) => {
   }, [])
 
   function getIntroList(order = "desc") {
+    setIntroList([])
+
     getArticle({ order })
       .then(res => {
         setIntroList(res.data.articles)

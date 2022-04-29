@@ -100,5 +100,13 @@
       color: rgb(0 0 0 / 35%);
       line-height: 7.5rem;
     }
+
+    &-loading {
+      margin-top: 30vh;
+
+      &--hasBanner {
+        margin-top: 10vh;
+      }
+    }
   }
 }
