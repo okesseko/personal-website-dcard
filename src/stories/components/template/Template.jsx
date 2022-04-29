@@ -116,6 +116,7 @@ const Template = ({
                     ? {
                         state: {
                           oldLocation: JSON.parse(JSON.stringify(location)),
+                          order: orderType,
                         },
                       }
                     : {}

@@ -16,7 +16,7 @@ const WrapPageElement = () => (
   <Layout>
     <Location>
       {({ location, navigate }) => {
-        const { oldLocation } = location.state || {}
+        const { oldLocation, order } = location.state || {}
         return (
           <>
             <Router
@@ -36,6 +36,7 @@ const WrapPageElement = () => (
               >
                 <DialogArticle
                   oldLocation={oldLocation}
+                  order={order}
                   articleId={location.pathname.replace("/post/", "")}
                 />
               </Dialog>

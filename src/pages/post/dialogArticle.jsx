@@ -14,7 +14,7 @@ import getCategoryInfo from "@Utils/getCategoryInfo"
 
 import "./dialogArticle.scss"
 
-const DialogArticle = ({ oldLocation, location, articleId }) => {
+const DialogArticle = ({ oldLocation, order, location, articleId }) => {
   const [maskDisplayed, setMaskDisplayed] = useState(false)
   const [article, setArticle] = useState({})
   const [prevArticle, setPrevArticle] = useState(null)
@@ -26,7 +26,7 @@ const DialogArticle = ({ oldLocation, location, articleId }) => {
   }, [articleId])
 
   function getArticleInfo() {
-    getArticle({ id: articleId, getPrev: true, getNext: true })
+    getArticle({ order, id: articleId, getPrev: true, getNext: true })
       .then(res => {
         console.log(res.data)
         setPrevArticle(res.data.prevArticle)
@@ -47,6 +47,7 @@ const DialogArticle = ({ oldLocation, location, articleId }) => {
         className="dialog-article__link"
         to={`/post/${articleInfo.id}`}
         state={{
+          order,
           oldLocation: JSON.parse(JSON.stringify(oldLocation || location)),
         }}
         onMouseEnter={() => setMaskDisplayed(true)}
