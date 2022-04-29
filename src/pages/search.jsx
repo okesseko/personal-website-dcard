@@ -13,6 +13,7 @@ import "./index.scss"
 
 const Search = ({ location }) => {
   const [introList, setIntroList] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
   const searchQuery = getQuery(location)
 
   useEffect(() => {
@@ -20,6 +21,8 @@ const Search = ({ location }) => {
   }, [location.search])
 
   function getIntroList(order = "desc") {
+    setIsLoading(true)
+
     getArticle({ order, search: searchQuery })
       .then(res => {
         setIntroList(res.data.articles)
@@ -27,6 +30,7 @@ const Search = ({ location }) => {
       .catch(err => {
         console.log(err)
       })
+      .finally(() => setIsLoading(false))
   }
 
   return (
@@ -35,6 +39,7 @@ const Search = ({ location }) => {
       <CategoryContent.Consumer>
         {categoryList => (
           <Template
+            isLoading={isLoading}
             categoryList={categoryList}
             introList={introList}
             location={location}

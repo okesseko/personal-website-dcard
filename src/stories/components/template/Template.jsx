@@ -23,6 +23,7 @@ const Template = ({
   templateCategoryInfo,
   categoryList,
   isOpenModalRouter,
+  isLoading,
 }) => {
   const [isOrderMenuOpen, setIsOrderMenuOpen] = useState(false)
   const [orderType, setOrderType] = useState("desc")
@@ -95,7 +96,7 @@ const Template = ({
         </div>
       </div>
       <div className="template__main">
-        {introList.length ? (
+        {!isLoading ? (
           <>
             {introList.map(data => {
               const introCategoryInfo =
@@ -175,6 +176,7 @@ Template.propTypes = {
     })
   ),
   isOpenModalRouter: PropTypes.bool,
+  isLoading: PropTypes.bool,
 }
 
 export default Template

@@ -14,13 +14,14 @@ import "../index.scss"
 
 const Forum = ({ location, category }) => {
   const [introList, setIntroList] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     getIntroList()
   }, [category])
 
   function getIntroList(order = "desc") {
-    setIntroList([])
+    setIsLoading(true)
 
     getArticle({ order, category })
       .then(res => {
@@ -29,6 +30,7 @@ const Forum = ({ location, category }) => {
       .catch(err => {
         console.log(err)
       })
+      .finally(() => setIsLoading(false))
   }
 
   return (
@@ -42,6 +44,7 @@ const Forum = ({ location, category }) => {
             <Seo title={`${templateCategoryInfo.name} | Jimmy Lin`} />
             <Template
               isForum
+              isLoading={isLoading}
               templateCategoryInfo={templateCategoryInfo}
               categoryList={categoryList}
               introList={introList}

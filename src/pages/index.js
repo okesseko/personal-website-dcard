@@ -12,13 +12,14 @@ import "./index.scss"
 
 const App = ({ location }) => {
   const [introList, setIntroList] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     getIntroList()
   }, [])
 
   function getIntroList(order = "desc") {
-    setIntroList([])
+    setIsLoading(true)
 
     getArticle({ order })
       .then(res => {
@@ -27,6 +28,7 @@ const App = ({ location }) => {
       .catch(err => {
         console.log(err)
       })
+      .finally(() => setIsLoading(false))
   }
 
   return (
@@ -36,6 +38,7 @@ const App = ({ location }) => {
         {categoryList => (
           <Template
             isOpenModalRouter
+            isLoading={isLoading}
             categoryList={categoryList}
             introList={introList}
             location={location}
