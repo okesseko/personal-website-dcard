@@ -28,7 +28,6 @@ const DialogArticle = ({ oldLocation, order, location, articleId }) => {
   function getArticleInfo() {
     getArticle({ order, id: articleId, getPrev: true, getNext: true })
       .then(res => {
-        console.log(res.data)
         setPrevArticle(res.data.prevArticle)
         setArticle(res.data.articles[0])
         setNextArticle(res.data.nextArticle)

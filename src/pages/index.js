@@ -20,7 +20,6 @@ const App = ({ location }) => {
   function getIntroList(order = "desc") {
     getArticle({ order })
       .then(res => {
-        console.log(res.data.articles)
         setIntroList(res.data.articles)
       })
       .catch(err => {
